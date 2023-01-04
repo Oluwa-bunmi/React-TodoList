@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 
 class Todo extends Component {
- 
+  constructor(props) {
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+  handleRemove() {
+    this.props.remove(this.props.id);
+  }
+
   render() {
     return (
-      <div >
+      <div>
         <button>EDIT</button>
-        <button>X</button>
+        <button onClick={this.handleRemove}>X</button>
         <li>{this.props.task}</li>
       </div>
     );
