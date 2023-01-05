@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NewTodoForm from "./NewTodoForm";
 import Todo from "./Todo";
+import "./TodoList.css";
 
 class TodoList extends Component {
   constructor(props) {
@@ -28,21 +29,22 @@ class TodoList extends Component {
     });
     this.setState({ todos: updatedTodos });
   }
-  toggleCompletion(id){
-      const updatedTodos = this.state.todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, completed: !todo.completed};
-        }
-        return todo;
-      });
-      this.setState({ todos: updatedTodos });
-
+  toggleCompletion(id) {
+    const updatedTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, completed: !todo.completed };
+      }
+      return todo;
+    });
+    this.setState({ todos: updatedTodos });
   }
   render() {
     return (
       <div className="TodoList">
-        <h1>TODOLIST</h1>
-        <NewTodoForm create={this.create} />
+        <h1>
+          TODOLIST! <span>A React Todo List App</span>
+        </h1>
+
         <ul>
           {this.state.todos.map((todo) => {
             return (
@@ -58,6 +60,7 @@ class TodoList extends Component {
             );
           })}
         </ul>
+        <NewTodoForm create={this.create} />
       </div>
     );
   }
