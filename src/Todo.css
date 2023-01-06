@@ -14,16 +14,11 @@
   position: relative;
   transition: opacity 0.4s linear;
 }
-.Todo.completed {
-  transition: opacity 300ms ease-in-out;
-  transition-delay: 200ms;
+.Todo-task.completed {
   opacity: 0.5;
 }
 
-.Todo.completed .Todo-task {
-  /* opacity: 0.6; */
-}
-.Todo.completed .Todo-task:before {
+.Todo-task.completed:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -52,7 +47,7 @@
   font-size: 1em;
   margin: 0.4em;
   background: none;
-  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
   color: #fff;
 }
